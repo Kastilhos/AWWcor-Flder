@@ -1,0 +1,93 @@
+$base-red: #F06C64;
+$base-blue: #2D303A;
+$base-white: #F2F2F2;
+$section-headers: #666D89;
+$section-description: #767E9E;
+
+* {
+    box-sizing: border-box;
+    left: 0;
+    top: 0;
+    margin: 0;
+    padding: 0;
+}
+html {
+    scroll-padding-top: 95px;
+    scroll-behavior: smooth;
+}
+
+#fixed-nav {
+    position: fixed;
+    width: 1020px;
+    height: 89px;
+    background-color: $base-blue;
+
+    h1 {
+        position: absolute;
+        width: 124px;
+        height: 25px;
+        left: 40px;
+        top: 29px;
+
+        font-family: 'Lato';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 25px;
+        line-height: 30px;
+        letter-spacing: -0.03em;
+        color: #ffffff;
+        
+        span {
+            color: $base-red;
+        }
+    }
+
+    nav {
+        position: absolute;
+        width: 375px;
+        height: 14px;
+        left: 605px;
+        top: 42px;
+
+        font-family: 'Lato';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 14px;
+        text-align: right;
+        letter-spacing: -0.035em;
+    }
+}
+#home {
+    width: 100vw;
+    height: 100vh;
+    background-color: $base-red;
+}
+#services {
+    height: 494px;
+}
+
+#portfolio {
+    height: 864px;
+}
+
+%common-bar {
+    width: 1020px;
+    height: 6px;
+}
+
+.bar-blue {
+    @extend %common-bar;
+    background-color: $base-blue;
+    position: relative;
+    left: 0px;
+    top: 89px;
+}
+.bar-red {
+    @extend %common-bar;
+    background-color: $base-red;
+}
+.bar-white {
+    @extend %common-bar;
+    background-color: $base-white;
+}
