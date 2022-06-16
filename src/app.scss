@@ -1,26 +1,44 @@
 $base-red: #F06C64;
 $base-blue: #2D303A;
 $base-white: #F2F2F2;
+$border-red: #EA676B;
+$border-blue: #323746;
+$border-white: #ffffff;
 $section-headers: #666D89;
 $section-description: #767E9E;
+$section-light: #F0D8D9;
+$navbar-h: 13vh;
+$bars-h: 1vh;
+$footer-h: 10vh;
 
 * {
     box-sizing: border-box;
     left: 0;
-    top: 0;
     margin: 0;
     padding: 0;
+    max-width: 100%;
 }
+
 html {
-    scroll-padding-top: 95px;
+    scroll-padding-top: $bars-h+$navbar-h;
     scroll-behavior: smooth;
+    font-family: 'Lato';
+    font-style: normal;
+    font-size: 12px;
+}
+
+body {
+    position: absolute;
+    top: $navbar-h;
 }
 
 #fixed-nav {
     position: fixed;
-    width: 1020px;
-    height: 89px;
+    top: 0;
+    width: 100vw;
+    height: $navbar-h;
     background-color: $base-blue;
+    z-index: 100;
 
     h1 {
         position: absolute;
@@ -29,14 +47,12 @@ html {
         left: 40px;
         top: 29px;
 
-        font-family: 'Lato';
-        font-style: normal;
         font-weight: 700;
-        font-size: 25px;
+        font-size: 2.1rem;
         line-height: 30px;
         letter-spacing: -0.03em;
         color: #ffffff;
-        
+
         span {
             color: $base-red;
         }
@@ -58,36 +74,113 @@ html {
         letter-spacing: -0.035em;
     }
 }
+
 #home {
     width: 100vw;
-    height: 100vh;
+    height: 100vh - ($bars-h+$navbar-h);
     background-color: $base-red;
 }
+
 #services {
-    height: 494px;
+    height: 80vh - ($bars-h+$navbar-h);
+    background-color: $base-white;
+
+    #service-board {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .service-cards {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 27vw;
+
+        .round-frames {
+            position: relative;
+            margin: -15px 15px 0 0;
+            border: solid 2px #666D89;
+            border-radius: 50%;
+            min-width: 60px;
+            min-height: 60px;
+
+            img {
+                position: absolute;
+                display: block;
+                width: 100%;
+                height: 32px;
+                margin-top: -16px;
+                top: 50%;
+            }
+        }
+
+        .section-headers {
+            font-size: 1.5rem;
+            line-height: 18px;
+        }
+
+        .section-description {
+            font-size: 1rem;
+            text-align: justify;
+            margin-top: 7px;
+            line-height: 22px;
+        }
+    }
 }
 
 #portfolio {
-    height: 864px;
+    height: 120vh - ($bars-h+$navbar-h);
+    background-color: $base-blue;
+}
+
+#about {
+    height: 100vh - ($bars-h+$navbar-h);
+    background-color: $base-white;
+}
+
+#contact {
+    height: 100vh - ($bars-h+$navbar-h+$footer-h);
+    background-color: $base-red;
+}
+
+footer {
+    height: $footer-h;
+    background-color: $base-blue;
 }
 
 %common-bar {
-    width: 1020px;
-    height: 6px;
+    width: 100vw;
+    height: $bars-h;
 }
 
 .bar-blue {
     @extend %common-bar;
-    background-color: $base-blue;
-    position: relative;
-    left: 0px;
-    top: 89px;
+    background-color: $border-blue;
 }
+
 .bar-red {
     @extend %common-bar;
-    background-color: $base-red;
+    background-color: $border-red;
 }
+
 .bar-white {
     @extend %common-bar;
-    background-color: $base-white;
+    background-color: $border-white;
+}
+
+.section-headers {
+    color: $section-headers;
+    font-size: 2.5rem;
+}
+
+.section-description {
+    color: $section-description;
+    font-size: 1.5rem;
+}
+
+.section-light {
+    color: $section-light
 }
