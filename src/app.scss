@@ -28,76 +28,82 @@ html {
 }
 
 body {
-    position: absolute;
+    position: relative;
     top: $navbar-h;
 }
-
-#fixed-nav {
-    position: fixed;
-    top: 0;
-    width: 100vw;
-    height: $navbar-h;
-    background-color: $base-blue;
-    z-index: 100;
-
-    h1 {
-        position: absolute;
-        width: 124px;
-        height: 25px;
-        left: 40px;
-        top: 29px;
-
-        font-weight: 700;
-        font-size: 2.1rem;
-        line-height: 30px;
-        letter-spacing: -0.03em;
-        color: #ffffff;
-
-        span {
-            color: $base-red;
+.global-wraper {
+    position: relative;
+    max-width: 1020px;
+    margin: auto;
+}
+.fixed-nav {
+        position: fixed;
+        top: 0;
+        margin: 0 auto;
+        width: 1020px;
+        height: $navbar-h;
+        background-color: $base-blue;
+        z-index: 100;
+    
+        h1 {
+            position: absolute;
+            width: 124px;
+            height: 25px;
+            left: 40px;
+            top: 29px;
+    
+            font-weight: 700;
+            font-size: 2.1rem;
+            line-height: 30px;
+            letter-spacing: -0.03em;
+            color: #ffffff;
+    
+            span {
+                color: $base-red;
+            }
+        }
+    
+        nav {
+            position: absolute;
+            width: 375px;
+            left: 605px;
+            top: 42px;
+    
+            font-family: 'Lato';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 12px;
+            line-height: 14px;
+            text-align: right;
+            letter-spacing: -0.035em;
         }
     }
 
-    nav {
-        position: absolute;
-        width: 375px;
-        height: 14px;
-        left: 605px;
-        top: 42px;
 
-        font-family: 'Lato';
-        font-style: normal;
-        font-weight: 700;
-        font-size: 12px;
-        line-height: 14px;
-        text-align: right;
-        letter-spacing: -0.035em;
-    }
-}
 
-#home {
-    width: 100vw;
+.carousel {
+    width: 100%;
     height: 100vh - ($bars-h+$navbar-h);
     background-color: $base-red;
 }
 
-#services {
-    height: 80vh - ($bars-h+$navbar-h);
+.services {
     background-color: $base-white;
 
-    #service-board {
+    .service-board {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         align-items: center;
         justify-content: space-around;
+        gap: 10px;
     }
 
     .service-cards {
         display: flex;
         flex-direction: row;
         align-items: center;
-        width: 27vw;
+        width: 27%;
 
         .round-frames {
             position: relative;
@@ -131,28 +137,28 @@ body {
     }
 }
 
-#portfolio {
-    height: 120vh - ($bars-h+$navbar-h);
+.portfolio {
     background-color: $base-blue;
 }
 
-#about {
-    height: 100vh - ($bars-h+$navbar-h);
+.about {
     background-color: $base-white;
 }
 
-#contact {
-    height: 100vh - ($bars-h+$navbar-h+$footer-h);
+.contact {
     background-color: $base-red;
 }
 
-footer {
+.body-footer {
     height: $footer-h;
-    background-color: $base-blue;
+
+    &_blue {
+        background-color: $base-blue;
+    }
 }
 
 %common-bar {
-    width: 100vw;
+    width: 100%;
     height: $bars-h;
 }
 
