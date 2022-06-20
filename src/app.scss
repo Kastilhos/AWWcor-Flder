@@ -107,7 +107,7 @@ body {
         flex-wrap: wrap;
         align-items: center;
         justify-content: space-around;
-        gap: 10px;
+        gap: 20px;
 
         &--third {
             max-width: 30%;
@@ -119,7 +119,6 @@ body {
 
 .containers {
         display: flex;
-        gap: 20px;
 
     &--row {
         flex-direction: row;
@@ -132,24 +131,59 @@ body {
 }
 .round-frames {
     position: relative;
-    margin: -15px 15px 0 0;
     border: solid 2px #666D89;
     border-radius: 50%;
-    min-width: 60px;
-    min-height: 60px;
 
-    img {
-        position: absolute;
-        display: block;
-        width: 100%;
+    &--medium {
+        min-width: 60px;
+        min-height: 60px;
+    }
+    &--small {
+        min-width: 32px;
+        min-height: 32px;
+    }
+}
+
+.images {
+
+    &__about {
+        min-width: 300px;
+       }
+    
+    &__porfolio {
+        width: 220px;
+        height: 187px;
+    }
+
+}
+
+.icons {
+    position: absolute;
+    display: block;
+    left: 0;
+    right: 0;
+    margin: auto;
+    &--small {
+        height: 14px;
+        margin-top: -7px;
+        top: 50%;
+    }
+
+    &--medium {
         height: 32px;
         margin-top: -16px;
         top: 50%;
     }
 }
+
 .portfolio {
     background-color: $base-blue;
     border-bottom: solid 6px $border-blue;
+
+    &__containers {
+        flex-wrap: wrap;
+        gap: 20px
+    }
 }
 
 .about {
@@ -157,22 +191,63 @@ body {
     border-bottom: solid 6px $border-white;
 
     &__containers {
-        max-width: 300px;
-    }
-
-    &__images {
-       // width: 300px;
+        gap: 20px;
     }
 }
 
 .contact {
     background-color: $base-red;
     border-bottom: solid 6px $border-red;
+
+    &__form {
+        width: 620px;
+        gap: 14px;
+    }
+    .button {
+        border: none;
+        border-radius: 5px;
+
+        &--yellow {
+            background-color: #FBC65F;
+        }
+    }
+    .form {
+        &__containers {
+            gap: 16px;
+        }
+
+        &__text-fields {
+            width: 620px;
+            height: 38px;
+            background-color: #D6564F;
+            border: none;
+            border-radius: 5px;
+        }
+
+        &__button {
+            width: 136px;
+            height: 38px;
+        }
+
+    }
+/*
+    &__containers {
+        flex-wrap: unset;
+    }*/
 }
 
 .footer {
     height: $footer-h;
     background-color: $base-blue;
+
+    &__containers {
+        position: relative;
+        justify-content: center;
+    }
+}
+
+::placeholder {
+    color: #F48C8F;
 }
 
 .headers {
@@ -214,6 +289,7 @@ body {
         font-weight: 300;
     }
 }
+
 /*
 .description {
     font-size: 1rem;
