@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<!--global class for sections -->
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,67 +21,83 @@
                 </nav>
         </header>
     
-        <div class="carousel section section__container">
-            <div class="phone"></div>
-            <div class="phone"></div>
+        <div class="carousel section">
+            <div class="phone">
+                <div class="phone__led"></div>
+                <div class="phone__speaker"></div>
+                <div class="phone__display"><img src="./assets/phone-vertical-display.png" alt=""></div>
+                <div class="phone__button-round">
+                    <div class="phone__button-square"></div>
+                </div>
+                <img src="./assets/phone-vertical-shadow.png" alt="" class="phone__shadow">
+            </div>
+            <div class="phone phone--hor">
+                <div class="phone__led phone__led--hor"></div>
+                <div class="phone__speaker phone__speaker--hor"></div>
+                <div class="phone__display phone__display--hor"><img src="./assets/phone-vertical-display.png" alt=""></div>
+                <div class="phone__button-round phone__button-round--hor">
+                    <div class="phone__button-square phone__button-square--hor"></div>
+                </div>
+                <img src="./assets/phone-vertical-shadow.png" alt="" class="phone__shadow">
+            </div>
+            <!-- <div class="phone"></div> -->
         </div>
     
-        <section class="services section section__container" id="services">
+        <section class="services section" id="services">
             <h2 class="headers headers--blue headers--medium">Our Services</h2>
             <p class="description description--medium">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Unde ab ad omnis fugiat consectetur sed voluptatem exercitationem tempora, repudiandae ea! Ad laborum explicabo, dolorum pariatur quidem enim ipsa cupiditate facere!</p>
             <div class="containers services__containers containers--row">
-                <div class="containers containers--row services__containers--third">
+                <div class="services__item-wrap">
                     <div class="round-frames round-frames--medium">
                         <img src="./assets/services-item-1--nocircle.svg" alt="" class="icons icons--medium">
                     </div>
-                    <div class="">
+                    <div class="services__item">
                         <h3 class="headers headers--blue headers--small">Custom Designs</h3>
                         <p class="description description--small">Curabitur vestibulum eget mauris quis laoreet. Phasellus in quam
                             laoreet, viverra lacus ut, ultrices velit.</p>
                     </div>
                 </div>
-                <div class="containers containers--row services__containers--third">
+                <div class="services__item-wrap">
                     <div class="round-frames round-frames--medium">
                         <img src="./assets/services-item-2--nocircle.svg" alt="" class="icons icons--medium">
                     </div>
-                    <div>
+                    <div class="services__item">
                         <h3 class="headers headers--blue headers--small">Inovative Ideas</h3>
                         <p class="description description--small">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, quis?</p>
                     </div>
                 </div>
-                <div class="containers containers--row services__containers--third">
+                <div class="services__item-wrap">
                     <div class="round-frames round-frames--medium">
                         <img src="./assets/services-item-3--nocircle.svg" alt="" class="icons icons--medium">
                     </div>
-                    <div>
+                    <div class="services__item">
                         <h3 class="headers headers--blue headers--small">Love Is The Answer</h3>
                         <p class="description description--small">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus, tempore?</p>
                     </div>
                 </div>
-                <div class="containers containers--row services__containers--third">
+                <div class="services__item-wrap">
                     <div class="round-frames round-frames--medium">
                         <img src="./assets/services-item-4--nocircle.svg" alt="" class="icons icons--medium">
                     </div>
-                    <div>
+                    <div class="services__item">
                         <h3 class="headers headers--blue headers--small">Responsive Layout</h3>
                         <p class="description description--small">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, placeat ipsum?</p>
                     </div>
                 </div>
-                <div class="containers containers--row services__containers--third">
+                <div class="services__item-wrap">
                     <div class="round-frames round-frames--medium">
                         <img src="./assets/services-item-5--nocircle.svg" alt="" class="icons icons--medium">
                     </div>
-                    <div>
+                    <div class="services__item">
                         <h3 class="headers headers--blue headers--small">24 / 7 Support</h3>
-                        <p class="description description--small">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate fugit consequuntur atque sunt.
-                        </p>
+                        <p class="description description--small">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate fugit consequuntur atque sunt.</p>
                     </div>
                 </div>
-                <div class="containers containers--row services__containers--third">
+                <div class="services__item-wrap">
                     <div class="round-frames round-frames--medium">
                         <img src="./assets/services-item-6--nocircle.svg" alt="" class="icons icons--medium">
                     </div>
-                    <div>
+                    <div class="services__item">
                         <h3 class="headers headers--blue headers--small">Feel Like A Star</h3>
                         <p class="description description--small">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis, reiciendis!</p>
                     </div>
@@ -89,37 +105,38 @@
             </div>
         </section>
         
-        <section class="portfolio section section__container" id="portfolio">
+        <section class="portfolio section" id="portfolio">
             <h2 class="headers headers--blue headers--medium">Portfolio</h2>
-            <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Est maxime, saepe hic
-                excepturi, laborum voluptates
-                dolore nobis culpa odit esse ex pariatur. Nulla exercitationem illo, voluptatum impedit suscipit nemo
-                repellat?</p>
+            <p class="description description--medium">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab repudiandae reprehenderit assumenda, sed ut a!</p>
+            <div class="portfolio__filter"><p>All</p></div>
+            <div class="portfolio__filter"><p>Web Design</p></div>
+            <div class="portfolio__filter"><p>Graphic Design</p></div>
+            <div class="portfolio__filter"><p>Artwork</p></div>
             <div class="containers containers--row portfolio__containers">
-                <figure class="images images__porfolio"><img src="./assets/portfolio-1.png" alt=""></figure>
-                <figure class="images images__porfolio"><img src="./assets/portfolio-2.png" alt=""></figure>
-                <figure class="images images__porfolio"><img src="./assets/portfolio-3.png" alt=""></figure>
-                <figure class="images images__porfolio"><img src="./assets/portfolio-4.png" alt=""></figure>
-                <figure class="images images__porfolio"><img src="./assets/portfolio-5.png" alt=""></figure>
-                <figure class="images images__porfolio"><img src="./assets/portfolio-6.png" alt=""></figure>
-                <figure class="images images__porfolio"><img src="./assets/portfolio-7.png" alt=""></figure>
-                <figure class="images images__porfolio"><img src="./assets/portfolio-8.png" alt=""></figure>
-                <figure class="images images__porfolio"><img src="./assets/portfolio-9.png" alt=""></figure>
-                <figure class="images images__porfolio"><img src="./assets/portfolio-10.png" alt=""></figure>
-                <figure class="images images__porfolio"><img src="./assets/portfolio-11.png" alt=""></figure>
-                <figure class="images images__porfolio"><img src="./assets/portfolio-12.png" alt=""></figure>
+                <img src="./assets/portfolio-1.png" alt="" class="porfolio__image">
+                <img src="./assets/portfolio-2.png" alt="" class="porfolio__image">
+                <img src="./assets/portfolio-3.png" alt="" class="porfolio__image">
+                <img src="./assets/portfolio-4.png" alt="" class="porfolio__image">
+                <img src="./assets/portfolio-5.png" alt="" class="porfolio__image">
+                <img src="./assets/portfolio-6.png" alt="" class="porfolio__image">
+                <img src="./assets/portfolio-7.png" alt="" class="porfolio__image">
+                <img src="./assets/portfolio-8.png" alt="" class="porfolio__image">
+                <img src="./assets/portfolio-9.png" alt="" class="porfolio__image">
+                <img src="./assets/portfolio-10.png" alt="" class="porfolio__image">
+                <img src="./assets/portfolio-11.png" alt="" class="porfolio__image">
+                <img src="./assets/portfolio-12.png" alt="" class="porfolio__image">
             </div>
         </section>
         
-        <section class="about section section__container" id="about">
+        <section class="about section" id="about">
             <h2 class="headers headers--blue headers--medium">About us</h2>
-            <p class="description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus officiis quae
+            <p class="description description--medium">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus officiis quae
                 aliquam rem culpa adipisci quos
                 nostrum saepe debitis, nobis assumenda sapiente possimus dolorem ratione doloremque porro voluptatum totam
                 odit?</p>
-            <div class="containers about__containers containers--row">
-                <div class="containers containers--column">
-                    <img src="./assets/photo-1.jpg" alt="" class="images images__about">
+            <div class="containers about__item-wrap">
+                <div class="about__item">
+                    <img src="./assets/photo-1.jpg" alt="" class="about__item-img">
                     <h3 class="headers headers--blue headers--small">Adam Jensen</h3>
                     <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe, pariatur ipsam.</p>
                     <div class="containers containers--row">
@@ -137,8 +154,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="containers containers--column">
-                    <img src="./assets/photo-2.jpg" alt="" class="images images__about">
+                <div class="about__item">
+                    <img src="./assets/photo-2.jpg" alt="" class="about__item-img">
                     <h3 class="headers headers--blue headers--small">Desmond Miles</h3>
                     <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam?</p>
                     <div class="containers containers--row">
@@ -156,8 +173,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="containers containers--column">
-                    <img src="./assets/photo-3.jpg" alt="" class="images images__about">
+                <div class="about__item">
+                    <img src="./assets/photo-3.jpg" alt="" class="about__item-img">
                     <h3 class="headers headers--blue headers--small">Scolara Visari</h3>
                     <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam?</p>
                     <div class="containers containers--row">
@@ -178,9 +195,9 @@
             </div>
         </section>
     
-        <section class="contact section section__container" id="contact">
-            <h2 class="light">Get a Quote</h2>
-            <p class="light">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Alias reiciendis earum
+        <section class="contact section" id="contact">
+            <h2 class="headers headers--medium">Get a Quote</h2>
+            <p class="description description--medium">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Alias reiciendis earum
                 assumenda tempora repellat
                 sed. Facilis distinctio qui laudantium dolore ea possimus cumque, rem itaque suscipit. Cum nulla temporibus
                 necessitatibus.</p>
@@ -196,15 +213,10 @@
                 </form>
                 <div class="containers containers--column">
                     <div>
-                        <h3 class="light">
-                            Contact Information
-                        </h3>
-                        <p class="light">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed natus error porro eum veritatis
-                            exercitationem quis minus! Quidem unde pariatur rem enim nulla, nam sit sint iusto minus fuga sed!
-                        </p>
+                        <h3 class="headers headers--small">Contact Information</h3>
+                        <p class="description description--small">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed natus error porro eum veritatis exercitationem quis minus! Quidem unde pariatur rem enim nulla, nam sit sint iusto minus fuga sed!</p>
                     </div>
-                    <address>
+                    <address class="contact__item-wrap">
                             <a class="anchor contact__anchor"><img src="./assets/ico-location.png" alt=""> Elm St. 14/05 Lost City</a>
                             <a href="phone:035283318635" class="anchor contact__anchor"><img src="./assets/ico-phone.png" alt="">03528 331 86 35</a>
                             <a href="mailto:info@singolo.com" class="anchor contact__anchor"><img src="./assets/ico-mail.png" alt="">info@singolo.com</a></li>

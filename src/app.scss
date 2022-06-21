@@ -9,7 +9,7 @@
 }
 
 html {
-    scroll-padding-top: $bars-h+$navbar-h;
+    scroll-padding-top: $navbar-h;
     scroll-behavior: smooth;
     font-family: 'Lato';
     font-style: normal;
@@ -33,11 +33,16 @@ body {
         top: 0;
         right: 0;
         margin: auto;
-        width: 1020px;
+        max-width: 1020px;
+        width: 100%;
         height: $navbar-h;
         background-color: $base-blue;
         z-index: 100;
         border-bottom: solid 6px $border-blue;
+
+        &__anchor:hover {
+            color: $base-red;
+        }
     
         &__logo {
             position: absolute;
@@ -78,35 +83,108 @@ body {
 
 .carousel {
     width: 100%;
-    height: 100vh - ($bars-h+$navbar-h);
+    height: 100vh - ($navbar-h);
     background-color: $base-red;
     border-bottom: solid 6px $border-red;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.phone {
+    width: 216px;
+    height: 458px;
+    background-color: $base-white;
+    border-radius: 25px;
+    padding-top: 16px;
+    z-index: 2;
+    &--hor {
+        transform: matrix(0, 1, -1, 0, 0, 0);
+    }
+    
+    &__led {
+        box-sizing: content-box;
+        width: 4px;
+        height: 4px;
+        background-color: #EB5055;
+        border: solid 4px #D8D8D8;
+        border-radius: 50%;
+        margin: auto;
+    }
+    &__speaker {
+        width: 36px;
+        height: 5px;
+        background-color: #ACACAC;
+        border-radius: 5px;
+        margin: auto;
+        margin-top: 10px;
+    }
+    &__display {
+        box-sizing: content-box;
+        border: solid 3px #c7c7c7;
+        border-radius: 3px;
+        width: 188px;
+        height: 333px;
+        margin: auto;        
+        margin-top: 21px;
+    }
+    &__button-round {
+        position: relative;
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        background-color: #FAFAFA;
+        margin: 7px auto 0;
+    }
+    &__button-square{
+        top: 50%;
+        left: 0;
+        right: 0;
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        border: solid 2px #BABABA;
+        border-radius: 5px;
+        margin: -8px auto;
+    }
+    &__shadow {
+        position: absolute;
+        top: 60px;
+        left: 40px;
+        z-index: 0;
+    }
 }
 
 .section {
     
-    &__container {
-        padding: 0 40px;
-    }
+    padding: 60px 40px 0;
 
 }
 
 .services {
+    color: $section-description;
     background-color: $base-white;
     border-bottom: solid 6px $border-white;
 
     &__containers {
         flex-wrap: wrap;
-        align-items: center;
-        justify-content: space-around;
+        justify-content: space-between;
+        align-items: flex-start;
         gap: 20px;
-
-        &--third {
-            max-width: 30%;
-        }
+        margin-top: 60px;
+        margin-bottom: 52px;
+    }    
+    &__item-wrap {
+        display: flex;
+        justify-content: space-between;
+        max-width: 300px;
+        width: 50%;
     }
-
-    
+    &__item {
+        max-width: 220px;
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+    }
 }
 
 .containers {
@@ -114,39 +192,28 @@ body {
 
     &--row {
         flex-direction: row;
-        align-items: center;
     }
     
     &--column {
         flex-direction: column;
     }
 }
+
 .round-frames {
     position: relative;
     border: solid 2px #666D89;
     border-radius: 50%;
 
     &--medium {
-        min-width: 60px;
-        min-height: 60px;
+        max-width: 60px;
+        width: 100%;
+        height: 60px;
     }
     &--small {
-        min-width: 32px;
-        min-height: 32px;
+        max-width: 32px;
+        width: 100%;
+        height: 32px;
     }
-}
-
-.images {
-
-    &__about {
-        min-width: 300px;
-       }
-    
-    &__porfolio {
-        width: 220px;
-        height: 187px;
-    }
-
 }
 
 .icons {
@@ -155,6 +222,7 @@ body {
     left: 0;
     right: 0;
     margin: auto;
+
     &--small {
         height: 14px;
         margin-top: -7px;
@@ -169,21 +237,52 @@ body {
 }
 
 .portfolio {
+    color: $section-description;
     background-color: $base-blue;
     border-bottom: solid 6px $border-blue;
 
+    &__filter {
+        display: inline-block;
+        border: solid 1px $section-description;
+        border-radius: 5px;
+        color: $section-description;
+        line-height: 100%;
+        font-size: 1rem;
+        margin-top: 12px;
+        margin-bottom: 24px;
+        padding: 5px 5px 5px;
+    }
+
+    &__image {
+        max-width: 220px;
+        width: 25%;
+    }
+
     &__containers {
         flex-wrap: wrap;
-        gap: 20px
+        justify-content: space-evenly;
+        gap: 20px;
+        margin-bottom: 75px;
     }
 }
 
 .about {
+    color: $section-description;
     background-color: $base-white;
     border-bottom: solid 6px $border-white;
-
-    &__containers {
-        gap: 20px;
+    
+    &__item-wrap {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 57px;
+        margin-bottom: 74px;
+    }
+    &__item {
+        max-width: 300px;
+        width: 33%;
+    }
+    &__item-img {
+        width: 100%;
     }
 }
 
@@ -193,28 +292,28 @@ body {
     color: $section-light;
 
     &__containers {
+        margin-top: 57px;
+        margin-bottom: 64px;
         gap: 20px;
     }
 
     &__form {
-        width: 620px;
+        max-width: 620px;
+        width: 75%;
         gap: 14px;
     }
-
-    &__ul {
-        list-style-position: inside;
-    //    list-style-image: url(./assets/ico-location.svg);
-    }/*
-    &__li {
-        &__icon1 {
-            list-style-image: url(./assets/ico-location.svg);
-        }
-        &__icon2 {
-            list-style-image: url(./assets/ico-phone.svg);
-        }
-        &__icon3 {
-            list-style-image: url(./assets/ico-mail.svg);
-        }*/
+        
+    &__item-wrap {
+        margin-top: 22px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 3px;
+    }
+    
+    &__anchor {
+        color: $section-light;
+    }
     }
     .button {
         border: none;
@@ -224,11 +323,7 @@ body {
             background-color: #FBC65F;
         }
     }
-/*
-    &__containers {
-        flex-wrap: unset;
-    }*/
-//}
+
 .form {
     &__containers {
         gap: 16px;
@@ -276,7 +371,6 @@ body {
     &--small {
         font-size: 1.5rem;
         line-height: 18px;
-        gap: 7px;
     }
 
     &--blue {
@@ -289,7 +383,8 @@ body {
 
 }
 .description {
-    color: $section-description;
+
+    font-style: normal;
 
     &--small {
         font-size: 1rem;
