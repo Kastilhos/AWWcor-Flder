@@ -14,33 +14,19 @@
                 <h1 class="header__logo">SINGOLO<span class="header__logo-asterisk">*</span></h1>
                 <nav class="header__nav">
                     <a href="#home" class="anchor header__anchor">HOME</a>
+                    <span class="header__anchor-decor">·</span>
                     <a href="#services" class="anchor header__anchor">SERVICES</a>
+                    <span class="header__anchor-decor">·</span>
                     <a href="#portfolio" class="anchor header__anchor">PORTFOLIO</a>
+                    <span class="header__anchor-decor">·</span>
                     <a href="#about" class="anchor header__anchor">ABOUT</a>
+                    <span class="header__anchor-decor">·</span>
                     <a href="#contact" class="anchor header__anchor">CONTACT</a>
                 </nav>
         </header>
     
-        <div class="carousel section">
-            <div class="phone">
-                <div class="phone__led"></div>
-                <div class="phone__speaker"></div>
-                <div class="phone__display"><img src="./assets/phone-vertical-display.png" alt=""></div>
-                <div class="phone__button-round">
-                    <div class="phone__button-square"></div>
-                </div>
-                <img src="./assets/phone-vertical-shadow.png" alt="" class="phone__shadow">
-            </div>
-            <div class="phone phone--hor">
-                <div class="phone__led phone__led--hor"></div>
-                <div class="phone__speaker phone__speaker--hor"></div>
-                <div class="phone__display phone__display--hor"><img src="./assets/phone-vertical-display.png" alt=""></div>
-                <div class="phone__button-round phone__button-round--hor">
-                    <div class="phone__button-square phone__button-square--hor"></div>
-                </div>
-                <img src="./assets/phone-vertical-shadow.png" alt="" class="phone__shadow">
-            </div>
-            <!-- <div class="phone"></div> -->
+        <div class="slider section">
+            <img class="slider__image" src="./assets/slider-content.png" alt="">
         </div>
     
         <section class="services section" id="services">
@@ -108,23 +94,23 @@
         <section class="portfolio section" id="portfolio">
             <h2 class="headers headers--blue headers--medium portfolio__header">Portfolio</h2>
             <p class="description description--medium">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab repudiandae reprehenderit assumenda, sed ut a!</p>
-            <div class="portfolio__filter"><p>All</p></div>
-            <div class="portfolio__filter"><p>Web Design</p></div>
-            <div class="portfolio__filter"><p>Graphic Design</p></div>
-            <div class="portfolio__filter"><p>Artwork</p></div>
+            <button class="portfolio__filter">All</button>
+            <button class="portfolio__filter">Web Design</button>
+            <button class="portfolio__filter">Graphic Design</button>
+            <button class="portfolio__filter">Artwork</button>
             <div class="containers containers--row portfolio__containers">
-                <img src="./assets/portfolio-1.png" alt="" class="porfolio__image">
-                <img src="./assets/portfolio-2.png" alt="" class="porfolio__image">
-                <img src="./assets/portfolio-3.png" alt="" class="porfolio__image">
-                <img src="./assets/portfolio-4.png" alt="" class="porfolio__image">
-                <img src="./assets/portfolio-5.png" alt="" class="porfolio__image">
-                <img src="./assets/portfolio-6.png" alt="" class="porfolio__image">
-                <img src="./assets/portfolio-7.png" alt="" class="porfolio__image">
-                <img src="./assets/portfolio-8.png" alt="" class="porfolio__image">
-                <img src="./assets/portfolio-9.png" alt="" class="porfolio__image">
-                <img src="./assets/portfolio-10.png" alt="" class="porfolio__image">
-                <img src="./assets/portfolio-11.png" alt="" class="porfolio__image">
-                <img src="./assets/portfolio-12.png" alt="" class="porfolio__image">
+                <img src="./assets/portfolio-1.png" alt="" class="portfolio__image">
+                <img src="./assets/portfolio-2.png" alt="" class="portfolio__image">
+                <img src="./assets/portfolio-3.png" alt="" class="portfolio__image">
+                <img src="./assets/portfolio-4.png" alt="" class="portfolio__image">
+                <img src="./assets/portfolio-5.png" alt="" class="portfolio__image">
+                <img src="./assets/portfolio-6.png" alt="" class="portfolio__image">
+                <img src="./assets/portfolio-7.png" alt="" class="portfolio__image">
+                <img src="./assets/portfolio-8.png" alt="" class="portfolio__image">
+                <img src="./assets/portfolio-9.png" alt="" class="portfolio__image">
+                <img src="./assets/portfolio-10.png" alt="" class="portfolio__image">
+                <img src="./assets/portfolio-11.png" alt="" class="portfolio__image">
+                <img src="./assets/portfolio-12.png" alt="" class="portfolio__image">
             </div>
         </section>
         
@@ -137,9 +123,9 @@
             <div class="containers about__item-wrap">
                 <div class="about__item">
                     <img src="./assets/photo-1.jpg" alt="" class="about__item-img">
-                    <h3 class="headers headers--blue headers--small">Adam Jensen</h3>
-                    <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe, pariatur ipsam.</p>
-                    <div class="containers containers--row">
+                    <h3 class="about__card-headers headers headers--blue headers--small">Adam Jensen</h3>
+                    <p class="description description--small">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe, pariatur ipsam.</p>
+                    <div class="about__round-frames containers containers--row">
                         <div class="round-frames round-frames--small">
                             <img src="./assets/ico-facebook--nocircle.png" alt="" class="icons icons--small">
                         </div>
@@ -156,9 +142,9 @@
                 </div>
                 <div class="about__item">
                     <img src="./assets/photo-2.jpg" alt="" class="about__item-img">
-                    <h3 class="headers headers--blue headers--small">Desmond Miles</h3>
-                    <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam?</p>
-                    <div class="containers containers--row">
+                    <h3 class="about__card-headers headers headers--blue headers--small">Desmond Miles</h3>
+                    <p class="description--small description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam?</p>
+                    <div class="about__round-frames containers containers--row">
                         <div class="round-frames round-frames--small">
                             <img src="./assets/ico-facebook--nocircle.png" alt="" class="icons icons--small">
                         </div>
@@ -175,9 +161,9 @@
                 </div>
                 <div class="about__item">
                     <img src="./assets/photo-3.jpg" alt="" class="about__item-img">
-                    <h3 class="headers headers--blue headers--small">Scolara Visari</h3>
-                    <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam?</p>
-                    <div class="containers containers--row">
+                    <h3 class="about__card-headers headers headers--blue headers--small">Scolara Visari</h3>
+                    <p class="description--small description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam?</p>
+                    <div class="about__round-frames containers containers--row">
                         <div class="round-frames round-frames--small">
                             <img src="./assets/ico-facebook--nocircle.png" alt="" class="icons icons--small">
                         </div>
@@ -203,17 +189,17 @@
                 necessitatibus.</p>
             <div class="containers contact__containers containers--row">
                 <form action="" class="containers contact__form containers--column">
-                    <div class="containers containers--column form__containers">
-                        <input type="text" name="name" id="name" placeholder="Name (Required)" class="form__text-fields" required>
-                        <input type="email" name="email" id="email" placeholder="Email (Required)" class="form__text-fields" required>
-                        <input type="text" name="Subject" id="subject" placeholder="Subject" class="form__text-fields">
-                        <textarea name="description" id="description" cols="30" rows="10" placeholder="Describe your project in detail..." class="form__text-fields"></textarea>
+                    <div class="containers containers--column contact__form-wraper">
+                        <input type="text" name="name" id="name" placeholder="Name (Required)" class="contact__form-fields" required>
+                        <input type="email" name="email" id="email" placeholder="Email (Required)" class="contact__form-fields" required>
+                        <input type="text" name="Subject" id="subject" placeholder="Subject" class="contact__form-fields">
+                        <textarea name="description" id="description" cols="30" rows="10" placeholder="Describe your project in detail..." class="contact__form-fields"></textarea>
                     </div>
-                    <input type="submit" value="Send" class="button button--yellow form__button">
+                    <input type="submit" value="Send" class="button button--yellow contact__button">
                 </form>
                 <div class="containers containers--column">
                     <div>
-                        <h3 class="headers headers--small">Contact Information</h3>
+                        <h3 class="contact__info-header headers headers--small">Contact Information</h3>
                         <p class="description description--small">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed natus error porro eum veritatis exercitationem quis minus! Quidem unde pariatur rem enim nulla, nam sit sint iusto minus fuga sed!</p>
                     </div>
                     <address class="contact__item-wrap">
@@ -226,7 +212,7 @@
         </section>
         
         <footer class="footer">
-            <div class="containers containers--row footer__containers">
+            <div class="footer__round-frames containers containers--row">
                 <div class="round-frames round-frames--small">
                     <img src="./assets/ico-facebook--nocircle.png" alt="" class="icons icons--small">
                 </div>

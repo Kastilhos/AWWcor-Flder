@@ -5,7 +5,6 @@
     left: 0;
     margin: 0;
     padding: 0;
-    max-width: 100%;
 }
 
 html {
@@ -35,7 +34,8 @@ body {
         margin: auto;
         max-width: 1020px;
         width: 100%;
-        height: $navbar-h;
+        padding-top: 42px;
+        padding-bottom: 39px;
         background-color: $base-blue;
         z-index: 100;
         border-bottom: solid 6px $border-blue;
@@ -76,19 +76,25 @@ body {
             text-align: right;
             letter-spacing: -0.035em;
         }
+
         &__anchor {
             color: #ffffff;
         }
+
+        &__anchor-decor {
+            color: #ffffff;
+            margin: 0px 10px;
+        }
     }
 
-.carousel {
+.slider {
     width: 100%;
-    height: 100vh - ($navbar-h);
     background-color: $base-red;
     border-bottom: solid 6px $border-red;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    &__image {
+        display: block;
+        margin: 0 auto 88px;
+    }
 }
 .phone {
     width: 216px;
@@ -197,7 +203,6 @@ body {
     border-bottom: solid 6px $border-blue;
 
     &__filter {
-        display: inline-block;
         border: solid 1px $section-description;
         border-radius: 5px;
         color: $section-description;
@@ -205,7 +210,8 @@ body {
         font-size: 1rem;
         margin-top: 12px;
         margin-bottom: 24px;
-        padding: 5px 5px 5px;
+        padding: 5px;
+        background-color: $base-blue;
     }
 
     &__image {
@@ -235,15 +241,27 @@ body {
         margin-top: 57px;
         margin-bottom: 74px;
     }
+
     &__item {
         max-width: 300px;
         width: 33%;
     }
+
     &__item-img {
         width: 100%;
     }
+
     &__header {
         margin-bottom: 14px;
+    } 
+
+    &__card-headers {
+        margin: 17px 0 7px;
+    }
+
+    &__round-frames {
+        margin-top: 12px;
+        gap: 8px;
     }
 }
 
@@ -257,12 +275,6 @@ body {
         margin-bottom: 64px;
         gap: 20px;
     }
-
-    &__form {
-        max-width: 620px;
-        width: 75%;
-        gap: 14px;
-    }
         
     &__item-wrap {
         margin-top: 22px;
@@ -275,8 +287,36 @@ body {
     &__anchor {
         color: $section-light;
     }
+
     &__header {
         margin-bottom: 14px;
+    }
+
+    &__info-header {
+        margin-bottom: 7px;
+    }
+
+    &__form {
+        max-width: 620px;
+        width: 75%;
+        gap: 14px;
+    }
+
+    &__form-wraper {
+        gap: 16px;
+    }
+
+    &__form-fields {
+        width: 620px;
+        background-color: #D6564F;
+        border: none;
+        border-radius: 5px;
+        padding: 14px 13px;
+    }
+
+    &__button {
+        width: 136px;
+        height: 38px;
     }
 }
 
@@ -289,31 +329,12 @@ body {
     }
 }
 
-.form {
-    &__containers {
-        gap: 16px;
-    }
-
-    &__text-fields {
-        width: 620px;
-        background-color: #D6564F;
-        border: none;
-        border-radius: 5px;
-        padding: 14px 13px;
-    }
-
-    &__button {
-        width: 136px;
-        height: 38px;
-    }
-
-}
-
 .footer {
-    height: $footer-h;
+    padding: 22px;
     background-color: $base-blue;
 
-    &__containers {
+    &__round-frames {
+        gap: 8px;
         position: relative;
         justify-content: center;
     }
@@ -347,6 +368,7 @@ body {
 }
 
 }
+
 .description {
 
     font-style: normal;
@@ -383,15 +405,16 @@ body {
 
 .round-frames {
 position: relative;
-border: solid 2px #666D89;
 border-radius: 50%;
 
 &--medium {
+    border: solid 2px #666D89;
     max-width: 60px;
     width: 100%;
     height: 60px;
 }
 &--small {
+    border: solid 1px #666D89;
     max-width: 32px;
     width: 100%;
     height: 32px;
