@@ -202,21 +202,49 @@ body {
     background-color: $base-blue;
     border-bottom: solid 6px $border-blue;
 
+    &__web-design {
+        max-width: 220px;
+        width: 25%;
+
+        &--off {
+            display: none;
+        }
+    }
+
+    &__graph-design {
+        max-width: 220px;
+        width: 25%;
+
+        &--off {
+            display: none;
+        }
+    }
+
+    &__artwork {
+        max-width: 220px;
+        width: 25%;
+
+        &--off {
+            display: none;
+        }
+    }
+
     &__filter {
-        border: solid 1px $section-description;
+        cursor: pointer;
         border-radius: 5px;
-        color: $section-description;
         line-height: 100%;
         font-size: 1rem;
         margin-top: 12px;
         margin-bottom: 24px;
         padding: 5px;
         background-color: $base-blue;
-    }
+        color: $section-description;     
+        border: solid 1px $section-description;
 
-    &__image {
-        max-width: 220px;
-        width: 25%;
+        &--on {
+            color: $base-white;
+            border-color:  $base-white;
+        }
     }
 
     &__containers {
@@ -225,6 +253,7 @@ body {
         gap: 20px;
         margin-bottom: 75px;
     }
+
     &__header {
         margin-bottom: 14px;
     }
