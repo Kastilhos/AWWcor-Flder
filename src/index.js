@@ -14,18 +14,24 @@ filterAll.addEventListener('click', function() {
         this.classList.toggle('portfolio__filter--on')
 
         if (filterGraphDesign.classList.contains('portfolio__filter--on')) {
+            filterGraphDesign.classList.toggle('portfolio__filter--on')
+        } else {
             for (let i of graphDesign) {
                 i.classList.toggle('portfolio__graph-design--off')
             }
         }
 
         if (filterWebDesign.classList.contains('portfolio__filter--on')) {
+            filterWebDesign.classList.toggle('portfolio__filter--on')
+        } else {
             for (let i of webDesign) {
                 i.classList.toggle('portfolio__web-design--off')
             }
         }
 
         if (filterArtwork.classList.contains('portfolio__filter--on')) {
+            filterArtwork.classList.toggle('portfolio__filter--on')
+        } else {
             for (let i of artwork) {
                 i.classList.toggle('portfolio__artwork--off')
             }
@@ -75,11 +81,11 @@ filterGraphDesign.addEventListener('click', function () {
     if (filterAll.classList.contains("portfolio__filter--on")) {
         filterAll.classList.toggle('portfolio__filter--on')
         this.classList.toggle('portfolio__filter--on')
-        for (let i of graphDesign) {
-            i.classList.toggle('portfolio__graph-design--off')
+        for (let i of webDesign) {
+            i.classList.toggle('portfolio__web-design--off')
         }
         for (let i of artwork) {
-            i.classList.toggle('portfolio__web-design--off')
+            i.classList.toggle('portfolio__artwork--off')
         }
     } else {
         this.classList.toggle('portfolio__filter--on')
