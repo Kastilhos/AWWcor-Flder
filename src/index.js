@@ -1,141 +1,56 @@
-const filterAll = document.getElementById("all")
-const filterArtwork = document.getElementById("artwork")
-const filterWebDesign = document.getElementById("web-design")
-const filterGraphDesign = document.getElementById("graph-design")
-const artwork = document.getElementsByClassName("portfolio__artwork")
-const webDesign = document.getElementsByClassName("portfolio__web-design")
-const graphDesign = document.getElementsByClassName("portfolio__graph-design")
+//document.getElementById("all").addEventListener("click", filterButton("all"))
 
-console.log(filterAll.classList.contains('portfolio__filter--on'))
+function filterButton(select) {
 
+    const portfolioFilter = {
+        "all": {
+            button: document.getElementById("all"),
+            display: "all"
+        },
+        "web-design": {
+            button: document.getElementById("web-design"),
+            display: document.getElementsByClassName("portfolio__web-design")
+        },
+        "graph-design": {
+            button: document.getElementById("graph-design"),
+            display: document.getElementsByClassName("portfolio__graph-design")
+        },
+        "artwork": {
+            "button": document.getElementById("artwork"),
+            display: document.getElementsByClassName("portfolio__artwork")
+        }
+    };
 
-filterAll.addEventListener('click', function() {
-    if ( filterAll.classList.contains('portfolio__filter--on') == false ) {
-        this.classList.toggle('portfolio__filter--on')
+    function toggleAll() {
 
-        if (filterGraphDesign.classList.contains('portfolio__filter--on')) {
-            filterGraphDesign.classList.toggle('portfolio__filter--on')
-        } else {
-            for (let i of graphDesign) {
-                i.classList.toggle('portfolio__graph-design--off')
-            }
-        }
+        portfolioFilter[select].button.classList.toggle('portfolio__filter--on');
 
-        if (filterWebDesign.classList.contains('portfolio__filter--on')) {
-            filterWebDesign.classList.toggle('portfolio__filter--on')
-        } else {
-            for (let i of webDesign) {
-                i.classList.toggle('portfolio__web-design--off')
+        for (let i in portfolioFilter) {
+            if (i != select && portfolioFilter[i].button.classList.contains('portfolio__filter--on')) {
+                portfolioFilter[i].button.classList.toggle('portfolio__filter--on');
+            } else {
+                for (let a in i.display) {
+                a.classList.toggle(`portfolio__${a}--off`)
             }
+            }
+        };
         }
 
-        if (filterArtwork.classList.contains('portfolio__filter--on')) {
-            filterArtwork.classList.toggle('portfolio__filter--on')
-        } else {
-            for (let i of artwork) {
-                i.classList.toggle('portfolio__artwork--off')
-            }
-        }
-    }
-})
+    //For All
+    if (select == portfolioFilter["all"].display ) {
+        if (!portfolioFilter[select].button.classList.contains('portfolio__filter--on')) {
+            return toggleAll();
+        };
 
-filterArtwork.addEventListener('click', function () {
-    if (filterAll.classList.contains("portfolio__filter--on")) {
-        filterAll.classList.toggle('portfolio__filter--on')
-        this.classList.toggle('portfolio__filter--on')
-        for (let i of graphDesign) {
-            i.classList.toggle('portfolio__graph-design--off')
-        }
-        for (let i of webDesign) {
-            i.classList.toggle('portfolio__web-design--off')
-        }
-    } else {
-        this.classList.toggle('portfolio__filter--on')
-        for (let i of artwork) {
-                i.classList.toggle('portfolio__artwork--off')
+    } /*else {
+        if (portfolioFilter.all.button.classList.contains('portfolio__filter--on')) {
+            portfolioFilter.all.select.button.classList.toggle('portfolio__filter--on');
             }
-        }
-    }
-)
+        this.select.button.classList.toggle('portfolio__filter--on');
+        this.select.display.classList.toggle(`portfolio__${i}--off`)
+    }*/
+}
 
-filterWebDesign.addEventListener('click', function () {
-    if (filterAll.classList.contains("portfolio__filter--on")) {
-        filterAll.classList.toggle('portfolio__filter--on')
-        this.classList.toggle('portfolio__filter--on')
-        for (let i of graphDesign) {
-            i.classList.toggle('portfolio__graph-design--off')
-        }
-        for (let i of artwork) {
-            i.classList.toggle('portfolio__artwork--off')
-        }
-    } else {
-        this.classList.toggle('portfolio__filter--on')
-        for (let i of webDesign) {
-                i.classList.toggle('portfolio__web-design--off')
-            }
-        }
-    }
-)
-
-filterGraphDesign.addEventListener('click', function () {
-    if (filterAll.classList.contains("portfolio__filter--on")) {
-        filterAll.classList.toggle('portfolio__filter--on')
-        this.classList.toggle('portfolio__filter--on')
-        for (let i of webDesign) {
-            i.classList.toggle('portfolio__web-design--off')
-        }
-        for (let i of artwork) {
-            i.classList.toggle('portfolio__artwork--off')
-        }
-    } else {
-        this.classList.toggle('portfolio__filter--on')
-        for (let i of graphDesign) {
-                i.classList.toggle('portfolio__graph-design--off')
-            }
-        }
-    }
-)
-
-/*
-filterWebDesign.addEventListener('click', function () {
-    if (filterAll.classList.contains("portfolio__filter--on")) {
-        filterAll.classList.toggle('portfolio__filter--on')
-        this.classList.toggle('portfolio__filter--on')
-        for (let i of artwork) {
-            i.classList.toggle('portfolio__artwork--off')
-            }
-        for (let i of graphDesign) {
-            i.classList.toggle('portfolio__graph-design--off')
-            }
-    } else {
-        this.classList.toggle('portfolio__filter--on')
-        for (let i of artwork) {
-            i.classList.toggle('portfolio__artwork--off')
-            }
-        for (let i of graphDesign) {
-            i.classList.toggle('portfolio__graph-design--off')
-            }
-    }
-})
-
-filterGraphDesign.addEventListener('click', function () {
-    if (filterAll.classList.contains("portfolio__filter--on")) {
-        filterAll.classList.toggle('portfolio__filter--on')
-        this.classList.toggle('portfolio__filter--on')
-        for (let i of artwork) {
-            i.classList.toggle('portfolio__artwork--off')
-            }
-        for (let i of webDesign) {
-            i.classList.toggle('portfolio__web-design--off')
-        }
-    } else {
-        this.classList.toggle('portfolio__filter--on') 
-        for (let i of artwork) {
-            i.classList.toggle('portfolio__artwork--off')
-            }
-        for (let i of webDesign) {
-            i.classList.toggle('portfolio__web-design--off')
-        }
-    }
-})
-*/
+/*portfolioFilter["web-design"].button.addEventListener("click", filterButton("web-design"))
+portfolioFilter["graph-design"].button.addEventListener("click", filterButton("graph-design"))
+portfolioFilter.artwork.button.addEventListener("click", filterButton("artwork"))*/
