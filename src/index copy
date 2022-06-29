@@ -6,7 +6,7 @@ const filterGraphDesign = document.getElementById("graph-design")
 const artwork = document.getElementsByClassName("portfolio__artwork")
 const webDesign = document.getElementsByClassName("portfolio__web-design")
 const graphDesign = document.getElementsByClassName("portfolio__graph-design")
-*/
+
 
     const portfolioFilter = {
         "all": {
@@ -83,7 +83,7 @@ function filterButton(select) {
             }
         }
     };
-*/
+
     //For All
     if (select == portfolioFilter.all.display ) {
         if (!portfolioFilter.select.button.classList.contains('portfolio__filter--on')) {

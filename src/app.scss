@@ -206,27 +206,30 @@ body {
     &__web-design {
         max-width: 220px;
         width: 25%;
+        display: none;
 
-        &--off {
-            display: none;
+        &--toggled {
+            display: inline;
         }
     }
 
     &__graph-design {
         max-width: 220px;
         width: 25%;
+        display: none;
 
-        &--off {
-            display: none;
+        &--toggled {
+            display: inline;
         }
     }
 
     &__artwork {
         max-width: 220px;
         width: 25%;
+        display: none;
 
-        &--off {
-            display: none;
+        &--toggled {
+            display: inline;
         }
     }
 
@@ -242,7 +245,7 @@ body {
         color: $section-description;     
         border: solid 1px $section-description;
 
-        &--on {
+        &--toggled {
             color: $base-white;
             border-color:  $base-white;
         }
