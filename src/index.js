@@ -32,12 +32,8 @@ function filterButton(select) {
     
     const toggleButton = (selected) => {
 
-        if (selected === "all") {
-            filter[selected].classList.toggle('portfolio__filter--toggled')
-        } else {
-            console.log(selected)
-            filter.button[selected].classList.toggle('portfolio__filter--toggled')
-        }
+        selected === "all" ? filter[selected].classList.toggle('portfolio__filter--toggled')
+        : filter.button[selected].classList.toggle('portfolio__filter--toggled')
     }
     
     const toggleFilter = (selected) => {
@@ -50,14 +46,26 @@ function filterButton(select) {
     const toggleAll = (selected) => {
         
         for (let button in filter.button) {
-            if (this[button].classList.contains("portfolio__filter--toggled")) {
-                toggleButton(button);
-            } else {
-                toggleFilter(button);
-            }
+
+            this[button].classList.contains("portfolio__filter--toggled") ? toggleButton(button)
+            : toggleFilter(button);
+            
             toggleButton(selected);
         }
     }
+
+    const checkEveryButtonIsUntoggled = () => {
+
+        let answer = true;
+        for (let button in filter.button) {
+
+            if (this[button].classList.contains("portfolio__filter--toggled")) {
+                answer = false
+            }
+        }
+        return answer;
+    }
+
 
     if (select === "all" && filter[select].classList.contains("portfolio__filter--toggled")) {
         return;
@@ -69,10 +77,9 @@ function filterButton(select) {
         toggleAll(select);
     } else {
         toggleButton(select);
-        if (/*every button.key that does not contain toggle*/false) {
-            toggleAll("all")
-        } else {
-            toggleFilter(select)
+        toggleFilter(select);
+        if (checkEveryButtonIsUntoggled()) {
+            toggleAll("all");
         }
     }
 
