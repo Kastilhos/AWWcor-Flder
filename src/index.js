@@ -12,75 +12,51 @@ document.getElementById("graphic-design").addEventListener('click', () => {
 document.getElementById("artwork").addEventListener('click', () => {
     filterButton('artwork');
 });
+    
+const allFilters = document.getElementsByClassName('portfolio__filter')
+const allImages = document.getElementsByClassName('portfolio__images');
+let activeFilter = ['all'];
 
-
-const filter = {
-    'all': document.getElementById("all"),
-    button: {
-        'web-design': document.getElementById("web-design"),
-        'graphic-design': document.getElementById("graphic-design"),
-        'artwork': document.getElementById("artwork")
-    },
-    display: {
-        'web-design': document.getElementsByClassName("portfolio__web-design"),
-        'graphic-design': document.getElementsByClassName("portfolio__graphic-design"),
-        'artwork': document.getElementsByClassName("portfolio__artwork")
-    }
-}
 
 function filterButton(select) {
-    
-    const toggleButton = (selected) => {
 
-        selected === "all" ? filter[selected].classList.toggle('portfolio__filter--toggled')
-        : filter.button[selected].classList.toggle('portfolio__filter--toggled')
+    activeFilter.indexOf(select) >= 0
+        ? activeFilter.splice(activeFilter.indexOf(select), 1)
+        : activeFilter.push(select)
+
+    select === 'all' || activeFilter.length === 0
+        ? activeFilter = ['all']
+        : activeFilter.indexOf('all') >= 0 
+        ? activeFilter.splice(activeFilter.indexOf('all'), 1)
+        : null;
+
+    for (let button of allFilters) {
+        activeFilter.indexOf(button.id) >= 0 && !button.classList.contains('portfolio__filter--toggled')
+            ? button.classList.add('portfolio__filter--toggled')
+            : activeFilter.indexOf(button.id) >= 0 && button.classList.contains('portfolio__filter--toggled')
+            ? null
+            : button.classList.remove('portfolio__filter--toggled');
     }
-    
-    const toggleFilter = (selected) => {
 
-        for (let img of filter.display[selected]) {
-            img.classList.toggle(`portfolio__${selected}--toggled`)
+    toggleFilter();
+}
+
+function toggleFilter () {
+    if (activeFilter.length === 1 && activeFilter.indexOf('all') === 0) {
+        for (let img of allImages) {
+            img.classList.remove("portfolio__images--hidden");
         }
-    }
+    } else {
+        for (let img of allImages) {
+            const check = activeFilter.some((select) =>
+                img.classList.contains(`portfolio__${select}`)
+            );
 
-    const toggleAll = (selected) => {
-        
-        for (let button in filter.button) {
-
-            this[button].classList.contains("portfolio__filter--toggled") ? toggleButton(button)
-            : toggleFilter(button);
-            
-            toggleButton(selected);
-        }
-    }
-
-    const checkEveryButtonIsUntoggled = () => {
-
-        let answer = true;
-        for (let button in filter.button) {
-
-            if (this[button].classList.contains("portfolio__filter--toggled")) {
-                answer = false
+            if (check) {
+                img.classList.remove("portfolio__images--hidden")
+            } else {
+                img.classList.add("portfolio__images--hidden")
             }
         }
-        return answer;
     }
-
-
-    if (select === "all" && filter[select].classList.contains("portfolio__filter--toggled")) {
-        return;
-    } else if (select === "all" && !filter[select].classList.contains("portfolio__filter--toggled")) { 
-        toggleAll(select);
-    } else if (filter['all'].classList.contains("portfolio__filter--toggled")) {
-        toggleButton("all");
-        toggleButton(select);
-        toggleAll(select);
-    } else {
-        toggleButton(select);
-        toggleFilter(select);
-        if (checkEveryButtonIsUntoggled()) {
-            toggleAll("all");
-        }
-    }
-
 }

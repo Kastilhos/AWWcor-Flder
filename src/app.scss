@@ -203,34 +203,13 @@ body {
     background-color: $base-blue;
     border-bottom: solid 6px $border-blue;
 
-    &__graphic-design {
+    &__images {
         max-width: 220px;
         width: 25%;
-        display: none;
 
-        &--toggled {
-            display: inline;
-        }
-    }
-
-    &__web-design {
-        max-width: 220px;
-        width: 25%;
-        display: none;
-
-        &--toggled {
-            display: inline;
-        }
-    }
-
-    &__artwork {
-        max-width: 220px;
-        width: 25%;
-        display: none;
-
-        &--toggled {
-            display: inline;
-        }
+        &--hidden {
+            display: none;
+            }
     }
 
     &__filter {
