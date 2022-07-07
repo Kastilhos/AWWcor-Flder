@@ -1,4 +1,7 @@
 // Why addEventListener... We will explain later
+const allFilters = document.getElementsByClassName('portfolio__filter')
+const allImages = document.getElementsByClassName('portfolio__images');
+let activeFilter = ['all'];
 
 document.getElementById("all").addEventListener('click', () => {
     filterButton('all');
@@ -13,10 +16,10 @@ document.getElementById("artwork").addEventListener('click', () => {
     filterButton('artwork');
 });
     
-const allFilters = document.getElementsByClassName('portfolio__filter')
-const allImages = document.getElementsByClassName('portfolio__images');
-let activeFilter = ['all'];
-
+Array.from(allImages).forEach((img) => {
+    let selectedImg = img.addEventListener('click', () => {
+    clickImg(selectedImg);
+})})
 
 function filterButton(select) {
 
@@ -59,4 +62,8 @@ function toggleFilter () {
             }
         }
     }
+}
+
+const clickImg = function(index) {
+    
 }
