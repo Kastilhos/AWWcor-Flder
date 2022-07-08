@@ -1,6 +1,7 @@
 // Why addEventListener... We will explain later
 const allFilters = document.getElementsByClassName('portfolio__filter')
-const allImages = document.getElementsByClassName('portfolio__images');
+const allImages = Array.from(document.getElementsByClassName('portfolio__images'));
+let visibleImages = [...allImages]
 let activeFilter = ['all'];
 
 document.getElementById("all").addEventListener('click', () => {
@@ -16,10 +17,11 @@ document.getElementById("artwork").addEventListener('click', () => {
     filterButton('artwork');
 });
     
-Array.from(allImages).forEach((img) => {
-    let selectedImg = img.addEventListener('click', () => {
-    clickImg(selectedImg);
-})})
+visibleImages.forEach((img) => {
+    img.addEventListener('click', () => {
+    displayImg(img);
+})
+});
 
 function filterButton(select) {
 
@@ -62,8 +64,20 @@ function toggleFilter () {
             }
         }
     }
+    visibleImages = allImages.filter((img) => !img.classList.contains('portfolio__images--hidden'))
 }
 
-const clickImg = function(index) {
+const displayImg = function(img) {
     
+    const globalWraper = document.getElementById("home");
+    const imageWraper = document.createElement("div");
+    const imgDisplay = document.createElement("img");
+    
+    imageWraper.classList.add("port-display")
+    imgDisplay.classList.add("image-display")
+
+    imgDisplay.src = img.src;
+
+    imageWraper.appendChild(imgDisplay);
+    globalWraper.appendChild(imageWraper);
 }
