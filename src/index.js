@@ -44,40 +44,63 @@ function filterButton(select) {
     }
 
     toggleFilter();
-}
+    
+    function toggleFilter () {
+        if (activeFilter.length === 1 && activeFilter.indexOf('all') === 0) {
+            for (let img of allImages) {
+                img.classList.remove("portfolio__images--hidden");
+            }
+        } else {
+            for (let img of allImages) {
+                const check = activeFilter.some((select) =>
+                    img.classList.contains(`portfolio__${select}`)
+                );
 
-function toggleFilter () {
-    if (activeFilter.length === 1 && activeFilter.indexOf('all') === 0) {
-        for (let img of allImages) {
-            img.classList.remove("portfolio__images--hidden");
-        }
-    } else {
-        for (let img of allImages) {
-            const check = activeFilter.some((select) =>
-                img.classList.contains(`portfolio__${select}`)
-            );
-
-            if (check) {
-                img.classList.remove("portfolio__images--hidden")
-            } else {
-                img.classList.add("portfolio__images--hidden")
+                if (check) {
+                    img.classList.remove("portfolio__images--hidden")
+                } else {
+                    img.classList.add("portfolio__images--hidden")
+                }
             }
         }
+        visibleImages = allImages.filter((img) => !img.classList.contains('portfolio__images--hidden'))
     }
-    visibleImages = allImages.filter((img) => !img.classList.contains('portfolio__images--hidden'))
+
 }
+
 
 const displayImg = function(img) {
     
-    const globalWraper = document.getElementById("home");
-    const imageWraper = document.createElement("div");
-    const imgDisplay = document.createElement("img");
-    
-    imageWraper.classList.add("port-display")
-    imgDisplay.classList.add("image-display")
+    const portDisplay = document.getElementById("port-display");
+    const imgDisplay = document.getElementById("display-image");
 
     imgDisplay.src = img.src;
-
-    imageWraper.appendChild(imgDisplay);
-    globalWraper.appendChild(imageWraper);
+    portDisplay.classList.add("port-display--visible")
 }
+
+/*
+const appendButtons = () => {
+
+        const closeButton = document.createElement("div");
+        closeButton.classList.add("port-display__close");
+        //closeButton.setAttribute("close-button");
+
+        const nextButton = document.createElement("img");
+        nextButton.classList.add("port-display__next");
+        //nextButton.setAttribute("next-button");
+
+        const previousButton = document.createElement("img");
+        previousButton.classList.add("port-display__previous");
+        //previousButton.setAttribute("previous-button");
+
+        closeButton.textContent = "☒";
+        nextButton.src = "./assets/arrow-right.svg";
+        previousButton.src = "./assets/arrow-left.svg";
+
+        imageWraper.appendChild(closeButton);
+        imageWraper.appendChild(nextButton);
+        imageWraper.appendChild(previousButton);
+    }
+
+    appendButtons();
+    */
