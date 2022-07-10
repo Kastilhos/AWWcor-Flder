@@ -23,10 +23,10 @@ document.querySelector(".port-display__close").addEventListener('click', () => {
     closeButton();
 })
 document.querySelector(".port-display__nav-button--next").addEventListener('click', () => {
-    nextButton();
+    changeButtons('next');
 })
 document.querySelector(".port-display__nav-button--previous").addEventListener('click', () => {
-    previousButton();
+    changeButtons('previous');
 })
 
 visibleImages.forEach((img) => {
@@ -90,14 +90,21 @@ function closeButton() {
     portDisplay.classList.remove("port-display--visible")
 }
 
-function nextButton() {
-    const nextImage = visibleImages[visibleImages.indexOf(selectedImg)+1];
-    selectedImg = nextImage
-    imgDisplay.src = selectedImg.src
-}
+function changeButtons(selection) {
+    currentImage = visibleImages.indexOf(selectedImg);
 
-function previousButton() {
-    const previousImage = visibleImages[visibleImages.indexOf(selectedImg)-1];
-    selectedImg = previousImage
-    imgDisplay.src = selectedImg.src
+    if (selection === 'next') {
+        currentImage === visibleImages.at(-1) ? null
+        : (function () {
+            selectedImg = visibleImages[currentImage+1];
+            imgDisplay.src = selectedImg.src
+        }());
+    }
+    if (selection === 'previous') {
+        currentImage === visibleImages.at(0) ? null
+        :  (function () {
+            selectedImg = visibleImages[currentImage-1];
+            imgDisplay.src = selectedImg.src
+        }());
+    }
 }
