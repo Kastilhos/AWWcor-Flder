@@ -2,7 +2,7 @@ const allFilters = document.getElementsByClassName('portfolio__filter')
 const allImages = Array.from(document.getElementsByClassName('portfolio__images'));
 let visibleImages = [...allImages]
 let activeFilter = ['all'];
-    
+
 const portDisplay = document.getElementById("port-display");
 const imgDisplay = document.getElementById("display-image");
 let selectedImg;
@@ -20,7 +20,7 @@ document.getElementById("artwork").addEventListener('click', () => {
     filterButton('artwork');
 });
 document.querySelector(".port-display__close").addEventListener('click', () => {
-    closeButton();
+    changeButtons('close');
 })
 document.querySelector(".port-display__nav-button--next").addEventListener('click', () => {
     changeButtons('next');
@@ -31,8 +31,8 @@ document.querySelector(".port-display__nav-button--previous").addEventListener('
 
 visibleImages.forEach((img) => {
     img.addEventListener('click', () => {
-    displayImg(img);
-})
+        displayImg(img);
+    })
 });
 
 function filterButton(select) {
@@ -43,21 +43,21 @@ function filterButton(select) {
 
     select === 'all' || activeFilter.length === 0
         ? activeFilter = ['all']
-        : activeFilter.indexOf('all') >= 0 
-        ? activeFilter.splice(activeFilter.indexOf('all'), 1)
-        : null;
+        : activeFilter.indexOf('all') >= 0
+            ? activeFilter.splice(activeFilter.indexOf('all'), 1)
+            : null;
 
     for (let button of allFilters) {
         activeFilter.indexOf(button.id) >= 0 && !button.classList.contains('portfolio__filter--toggled')
             ? button.classList.add('portfolio__filter--toggled')
             : activeFilter.indexOf(button.id) >= 0 && button.classList.contains('portfolio__filter--toggled')
-            ? null
-            : button.classList.remove('portfolio__filter--toggled');
+                ? null
+                : button.classList.remove('portfolio__filter--toggled');
     }
 
     toggleFilter();
-    
-    function toggleFilter () {
+
+    function toggleFilter() {
         if (activeFilter.length === 1 && activeFilter.indexOf('all') === 0) {
             for (let img of allImages) {
                 img.classList.remove("portfolio__images--hidden");
@@ -80,31 +80,31 @@ function filterButton(select) {
 
 }
 
-const displayImg = function(img) {
+function displayImg(img) {
     selectedImg = img;
     imgDisplay.src = img.src;
     portDisplay.classList.add("port-display--visible")
 }
 
-function closeButton() {
-    portDisplay.classList.remove("port-display--visible")
-}
-
 function changeButtons(selection) {
-    currentImage = visibleImages.indexOf(selectedImg);
+    currentImageIndex = visibleImages.indexOf(selectedImg)
+    currentImage = visibleImages[currentImageIndex];
 
     if (selection === 'next') {
         currentImage === visibleImages.at(-1) ? null
-        : (function () {
-            selectedImg = visibleImages[currentImage+1];
-            imgDisplay.src = selectedImg.src
-        }());
+            : (function () {
+                selectedImg = visibleImages[currentImageIndex + 1];
+                imgDisplay.src = selectedImg.src
+            }());
     }
-    if (selection === 'previous') {
+    else if (selection === 'previous') {
         currentImage === visibleImages.at(0) ? null
-        :  (function () {
-            selectedImg = visibleImages[currentImage-1];
-            imgDisplay.src = selectedImg.src
-        }());
+            : (function () {
+                selectedImg = visibleImages[currentImageIndex - 1];
+                imgDisplay.src = selectedImg.src
+            }());
+    }
+    else if (selection === 'close') {
+        portDisplay.classList.remove("port-display--visible")
     }
 }
