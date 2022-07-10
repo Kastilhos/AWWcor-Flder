@@ -89,8 +89,11 @@ function displayImg(img) {
 function changeButtons(selection) {
     currentImageIndex = visibleImages.indexOf(selectedImg)
     currentImage = visibleImages[currentImageIndex];
-
-    if (selection === 'next') {
+    
+    if (selection === 'close') {
+        portDisplay.classList.remove("port-display--visible")
+    }
+    else if (selection === 'next') {
         currentImage === visibleImages.at(-1) ? null
             : (function () {
                 selectedImg = visibleImages[currentImageIndex + 1];
@@ -103,8 +106,5 @@ function changeButtons(selection) {
                 selectedImg = visibleImages[currentImageIndex - 1];
                 imgDisplay.src = selectedImg.src
             }());
-    }
-    else if (selection === 'close') {
-        portDisplay.classList.remove("port-display--visible")
     }
 }
