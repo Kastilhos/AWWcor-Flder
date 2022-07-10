@@ -68,11 +68,11 @@ body {
 
 
         &--next {
-            right: 20%;
+            right: 25%;
         }
 
         &--previous {
-            left: 20%;
+            left: 25%;
         }
 
     }
@@ -205,6 +205,7 @@ body {
     &__images {
         max-width: 220px;
         width: 25%;
+        cursor: pointer;
 
         &--hidden {
             display: none;

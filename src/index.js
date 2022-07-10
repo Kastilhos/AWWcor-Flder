@@ -1,8 +1,11 @@
-// Why addEventListener... We will explain later
 const allFilters = document.getElementsByClassName('portfolio__filter')
 const allImages = Array.from(document.getElementsByClassName('portfolio__images'));
 let visibleImages = [...allImages]
 let activeFilter = ['all'];
+    
+const portDisplay = document.getElementById("port-display");
+const imgDisplay = document.getElementById("display-image");
+let selectedImg;
 
 document.getElementById("all").addEventListener('click', () => {
     filterButton('all');
@@ -16,7 +19,16 @@ document.getElementById("graphic-design").addEventListener('click', () => {
 document.getElementById("artwork").addEventListener('click', () => {
     filterButton('artwork');
 });
-    
+document.querySelector(".port-display__close").addEventListener('click', () => {
+    closeButton();
+})
+document.querySelector(".port-display__nav-button--next").addEventListener('click', () => {
+    nextButton();
+})
+document.querySelector(".port-display__nav-button--previous").addEventListener('click', () => {
+    previousButton();
+})
+
 visibleImages.forEach((img) => {
     img.addEventListener('click', () => {
     displayImg(img);
@@ -68,39 +80,24 @@ function filterButton(select) {
 
 }
 
-
 const displayImg = function(img) {
-    
-    const portDisplay = document.getElementById("port-display");
-    const imgDisplay = document.getElementById("display-image");
-
+    selectedImg = img;
     imgDisplay.src = img.src;
     portDisplay.classList.add("port-display--visible")
 }
 
-/*
-const appendButtons = () => {
+function closeButton() {
+    portDisplay.classList.remove("port-display--visible")
+}
 
-        const closeButton = document.createElement("div");
-        closeButton.classList.add("port-display__close");
-        //closeButton.setAttribute("close-button");
+function nextButton() {
+    const nextImage = visibleImages[visibleImages.indexOf(selectedImg)+1];
+    selectedImg = nextImage
+    imgDisplay.src = selectedImg.src
+}
 
-        const nextButton = document.createElement("img");
-        nextButton.classList.add("port-display__next");
-        //nextButton.setAttribute("next-button");
-
-        const previousButton = document.createElement("img");
-        previousButton.classList.add("port-display__previous");
-        //previousButton.setAttribute("previous-button");
-
-        closeButton.textContent = "☒";
-        nextButton.src = "./assets/arrow-right.svg";
-        previousButton.src = "./assets/arrow-left.svg";
-
-        imageWraper.appendChild(closeButton);
-        imageWraper.appendChild(nextButton);
-        imageWraper.appendChild(previousButton);
-    }
-
-    appendButtons();
-    */
+function previousButton() {
+    const previousImage = visibleImages[visibleImages.indexOf(selectedImg)-1];
+    selectedImg = previousImage
+    imgDisplay.src = selectedImg.src
+}
