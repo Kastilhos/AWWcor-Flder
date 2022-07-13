@@ -28,6 +28,12 @@ document.querySelector(".port-display__nav-button--next").addEventListener('clic
 document.querySelector(".port-display__nav-button--previous").addEventListener('click', () => {
     changeButtons('previous');
 })
+document.querySelector(".slider__nav-button--next").addEventListener('click', () => {
+    changeSlider('next');
+})
+document.querySelector(".slider__nav-button--previous").addEventListener('click', () => {
+    changeSlider('previous');
+})
 
 visibleImages.forEach((img) => {
     img.addEventListener('click', () => {
@@ -108,3 +114,22 @@ function changeButtons(selection) {
             }());
     }
 }
+
+function changeSlider() {
+    const sliderRadios = document.getElementsByClassName("slider__radio");
+     if (sliderRadios[0].checked) {
+        sliderRadios[1].checked = true;
+     } else {
+        sliderRadios[0].checked = true;
+     }
+}
+
+let sliderCounter = 1;
+
+setInterval(() => {
+    document.getElementById(`image` + sliderCounter).checked = true;
+    sliderCounter++;
+    if (sliderCounter > 2) {
+        sliderCounter = 1;
+    }
+}, 5000);

@@ -32,9 +32,16 @@
             </nav>
         </header>
 
-        <div class="slider section">
-            <img class="slider__image" src="./assets/slider-content.png" alt="">
-        </div>
+       <div class="slider">
+        <button class="slider__nav-button slider__nav-button--next"><img src="./assets/arrow-right.svg"></button>
+        <button class="slider__nav-button slider__nav-button--previous"><img src="./assets/arrow-left.svg"></button>
+        <input type="radio" name="image" class="slider__radio" id="image1" checked>
+        <input type="radio" name="image" class="slider__radio" id="image2">
+            <div class="slider__wraper slider__wraper--view">
+                <img class="slider__image1" src="./assets/Slide-1.jpg" alt="">
+                <img class="slider__image2" src="./assets/Slide-2.jpg" alt="">
+            </div>
+       </div>
 
         <section class="services section" id="services">
             <h2 class="services__header headers headers--blue headers--medium">Our Services</h2>
