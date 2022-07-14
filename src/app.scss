@@ -98,6 +98,7 @@ body {
     margin: auto;
     max-width: 1020px;
     width: 100%;
+    max-height: 95px;
     background-color: $base-blue;
     z-index: 100;
     border-bottom: solid 6px $border-blue;
@@ -172,9 +173,9 @@ body {
     }
 
     &__wraper {
-    width: 200%;
-    display: flex;
-    transition: 1s;
+        width: 200%;
+        display: flex;
+        transition: 1s;
     }
 
     &__radio {
@@ -182,11 +183,11 @@ body {
     }
 }
 
-#image1:checked ~ .slider__wraper {
+#image1:checked~.slider__wraper {
     margin-left: 0;
 }
 
-#image2:checked ~ .slider__wraper {
+#image2:checked~.slider__wraper {
     margin-left: -100%;
 }
 
@@ -487,5 +488,153 @@ body {
         height: 32px;
         margin-top: -16px;
         top: 50%;
+    }
+}
+
+@media (max-width: 769px) {
+
+    .global-wraper {
+        max-width: 768px;
+    }
+
+    .header {
+        max-width: 768px;
+    }
+
+    .slider {
+        max-width: 768px;
+
+        &__image {
+            max-width: 768px;
+        }
+    }
+
+    .portfolio {
+        &__images {
+            max-width: 215px;
+            width: 33%;
+        }
+    }
+
+    .about {
+        &__item {
+            max-width: 218px;
+        }
+    }
+
+    .contact {
+        &__form {
+            max-width: 442px;
+        }
+
+        &__form-wraper {
+            gap: 12px;
+        }
+
+        &__form-fields {
+            max-width: 442px;
+        }
+    }
+}
+
+@media (max-width: 376px) {
+
+    html {
+        scroll-padding-top: 71px;
+    }
+
+    body {
+        top: 71px;
+    }
+
+    .section {
+
+        padding: 60px 30px 0;
+
+    }
+
+    .global-wraper {
+        max-width: 375px;
+        width: 100vw;
+    }
+
+    .header {
+        max-width: 375px;
+        width: 100%;
+        max-height: 71px;
+        border: none;
+
+        &__nav {
+            display: none;
+        }
+    }
+
+    .slider {
+        max-width: 375px;
+
+        &__image {
+            max-width: 375px;
+        }
+    }
+
+    .services {
+
+        &__containers {
+            flex-direction: column;
+            gap: 15px;
+
+        }
+
+        &__item-wrap {
+            width: 100%;
+        }
+    }
+
+    .portfolio {
+        &__containers {
+            gap: 13px;
+        }
+
+        &__images {
+            max-width: 150px;
+            width: 50%;
+        }
+    }
+
+    .about {
+        &__item-wrap {
+            flex-direction: column;
+            gap: 34px;
+        }
+
+        &__item {
+            max-width: 314px;
+            width: 100%;
+        }
+    }
+
+    .contact {
+        &__form {
+            max-width: 315px;
+            width: 100%;
+        }
+
+        &__form-wraper {
+            gap: 12px;
+        }
+
+        &__form-fields {
+            max-width: 315px;
+            width: 100%;
+        }
+
+        &__button {
+            max-width: 315px;
+            width: 100%;
+        }
+
+        &__containers {
+            flex-direction: column;
+        }
     }
 }
