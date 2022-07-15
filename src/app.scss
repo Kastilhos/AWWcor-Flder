@@ -111,6 +111,18 @@ body {
         color: $base-red;
     }
 
+    &__checkbox {
+        display: none;
+    }
+
+    &__mobile-nav {
+        display: none;
+    }
+
+    &__button {
+        display: none;
+    }
+
     &__logo {
         font-weight: 700;
         font-size: 2.1rem;
@@ -501,6 +513,14 @@ body {
         max-width: 768px;
     }
 
+    .services{
+
+        &__header {
+            text-shadow: none;
+        }
+
+    }
+
     .slider {
         max-width: 768px;
 
@@ -564,9 +584,76 @@ body {
         max-height: 71px;
         border: none;
 
+        &__mobile-nav {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: $base-blue;
+            max-width: 278px;
+            width: 278/375*100%;
+            height: 100vh;
+            z-index: 20;
+            box-shadow: 0px -40px 20px rgba(0, 0, 0, 0.4);
+            margin-left: -100%;
+            transition: 0.75s;
+        }
+
+        &__mobile-ul {
+            position: absolute;
+            list-style: none;
+            top: 232px;
+            left: 71px;
+        }
+
+        
+        &__mobile-li:not(:last-child) {
+            margin-bottom: 27px;
+        }
+
+        &__mobile-anchor {
+            font-size: 2rem;
+            color: $base-white;
+            text-decoration: none;
+        }
+
+        &__mobile-anchor:hover {
+            color: $base-red;
+        }
+
+        &__button {
+            display: inline-block;
+            position: absolute;
+            top: 25px;
+            bottom: 24px;
+            left: 20px;
+            background-color: #1c3ec600;
+            border: none;
+            transition: 0.25s;
+            z-index: 30;
+        }
+
+        &__logo {
+        margin: 28px auto 23px;
+        font-size: 19.6875px;
+        line-height: 20px;
+        font-weight: 700;
+        letter-spacing: -0.03em;
+        text-align: end;
+        }
+
         &__nav {
             display: none;
         }
+
+        &__checkbox:checked ~ &__mobile-nav {
+            margin-left: 0;
+        }
+
+        &__checkbox:checked ~ &__button {
+            transform: matrix(0, 1, -1, 0, 0, 0);
+        }
+
     }
 
     .slider {
@@ -578,6 +665,10 @@ body {
     }
 
     .services {
+
+        &__header {
+            text-shadow: none;
+        }
 
         &__containers {
             flex-direction: column;

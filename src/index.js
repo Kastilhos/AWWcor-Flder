@@ -34,12 +34,20 @@ document.querySelector(".slider__nav-button--next").addEventListener('click', ()
 document.querySelector(".slider__nav-button--previous").addEventListener('click', () => {
     changeSlider('previous');
 })
+document.getElementById("headerButton").addEventListener('click', () => {
+    displayMenu();
+});
 
 visibleImages.forEach((img) => {
     img.addEventListener('click', () => {
         displayImg(img);
     })
 });
+Array.from(document.getElementsByClassName("header__mobile-li")).forEach((button) => {
+    button.addEventListener('click', () => {
+        displayMenu();
+    });
+})
 
 function filterButton(select) {
 
@@ -133,3 +141,12 @@ setInterval(() => {
         sliderCounter = 1;
     }
 }, 5000);
+
+function displayMenu() {
+    const menuCheckBox = document.getElementById('headerCheck');
+    if (menuCheckBox.checked) {
+        menuCheckBox.checked = false;
+    } else {
+        menuCheckBox.checked = true;
+    }
+}
