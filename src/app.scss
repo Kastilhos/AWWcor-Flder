@@ -569,7 +569,23 @@ body {
 
     .section {
 
-        padding: 60px 30px 0;
+        padding: 0 30px 0;
+
+        &--services {
+            padding-top: 25px;
+        }
+
+        &--portfolio {
+            padding-top: 42px;
+        }
+
+        &--about {
+            padding-top: 33px;
+        }
+
+        &--contact {
+            padding-top: 44px;
+        }
 
     }
 
@@ -583,6 +599,22 @@ body {
         width: 100%;
         max-height: 71px;
         border: none;
+
+        &__background {
+            left: 0;
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+            background-color: #2d303a30;
+            display: none;
+        }
+
+        &__mobile-wrapper {
+            max-width: 100vw;
+            width: 100%;
+            z-index: 10;
+            background-color: #2d303a30;
+        }
 
         &__mobile-nav {
             display: block;
@@ -639,7 +671,11 @@ body {
         line-height: 20px;
         font-weight: 700;
         letter-spacing: -0.03em;
-        text-align: end;
+
+            &--mobile {
+                margin-left: 71px;
+            }
+
         }
 
         &__nav {
@@ -652,6 +688,10 @@ body {
 
         &__checkbox:checked ~ &__button {
             transform: matrix(0, 1, -1, 0, 0, 0);
+        }
+
+        &__checkbox:checked ~ &__background {
+            display: block;
         }
 
     }
@@ -668,6 +708,7 @@ body {
 
         &__header {
             text-shadow: none;
+            font-weight: 900;
         }
 
         &__containers {
