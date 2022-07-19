@@ -1,5 +1,9 @@
 @import './variables.scss';
 
+.disable-scroll {
+    overflow: hidden;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -591,7 +595,11 @@ body {
 
     .global-wraper {
         max-width: 375px;
-        width: 100vw;
+        width: 100%;
+
+        &--disable {
+            overflow: hidden;
+        }
     }
 
     .header {

@@ -10,30 +10,39 @@ let selectedImg;
 document.getElementById("all").addEventListener('click', () => {
     filterButton('all');
 });
+
 document.getElementById("web-design").addEventListener('click', () => {
     filterButton('web-design');
 });
+
 document.getElementById("graphic-design").addEventListener('click', () => {
     filterButton('graphic-design');
 });
+
 document.getElementById("artwork").addEventListener('click', () => {
     filterButton('artwork');
 });
+
 document.querySelector(".port-display__close").addEventListener('click', () => {
     changeButtons('close');
 })
+
 document.querySelector(".port-display__nav-button--next").addEventListener('click', () => {
     changeButtons('next');
 })
+
 document.querySelector(".port-display__nav-button--previous").addEventListener('click', () => {
     changeButtons('previous');
 })
+
 document.querySelector(".slider__nav-button--next").addEventListener('click', () => {
     changeSlider('next');
 })
+
 document.querySelector(".slider__nav-button--previous").addEventListener('click', () => {
     changeSlider('previous');
 })
+
 document.getElementById("headerButton").addEventListener('click', () => {
     displayMenu();
 });
@@ -43,6 +52,7 @@ visibleImages.forEach((img) => {
         displayImg(img);
     })
 });
+
 Array.from(document.getElementsByClassName("header__mobile-li")).forEach((button) => {
     button.addEventListener('click', () => {
         displayMenu();
@@ -95,17 +105,21 @@ function filterButton(select) {
 }
 
 function displayImg(img) {
+    
     selectedImg = img;
     imgDisplay.src = img.src;
-    portDisplay.classList.add("port-display--visible")
+    portDisplay.classList.add("port-display--visible");
+    document.querySelector("body").classList.add("disable-scroll");
 }
 
 function changeButtons(selection) {
+
     currentImageIndex = visibleImages.indexOf(selectedImg)
     currentImage = visibleImages[currentImageIndex];
     
     if (selection === 'close') {
         portDisplay.classList.remove("port-display--visible")
+        document.querySelector("body").classList.remove("disable-scroll");
     }
     else if (selection === 'next') {
         currentImage === visibleImages.at(-1) ? null
@@ -144,9 +158,13 @@ setInterval(() => {
 
 function displayMenu() {
     const menuCheckBox = document.getElementById('headerCheck');
+    const pageBody = document.querySelector("body").classList;
+
     if (menuCheckBox.checked) {
         menuCheckBox.checked = false;
+        pageBody.remove("disable-scroll");
     } else {
         menuCheckBox.checked = true;
+        pageBody.add("disable-scroll");
     }
 }
