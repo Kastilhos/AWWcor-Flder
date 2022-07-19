@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zxx">
 <!--global class for sections -->
 
 <head>
@@ -42,22 +42,24 @@
         </header>
 
         <div class="slider">
-            <button class="slider__nav-button slider__nav-button--next"><img src="./assets/arrow-right.svg"></button>
-            <button class="slider__nav-button slider__nav-button--previous"><img src="./assets/arrow-left.svg"></button>
+            <button class="slider__nav-button slider__nav-button--next"><img src="./assets/arrow-right.svg" alt="Next"></button>
+            <button class="slider__nav-button slider__nav-button--previous"><img src="./assets/arrow-left.svg" alt="Previous"></button>
             <input type="radio" name="image" class="slider__radio" id="image1" checked>
             <input type="radio" name="image" class="slider__radio" id="image2">
             <div class="slider__wraper slider__wraper--view">
-                <img class="slider__image slider__image--1" src="./assets/Slide-1.jpg" alt="">
-                <img class="slider__image slider__image--2" src="./assets/Slide-2.jpg" alt="">
+                <img class="slider__image slider__image--1" src="./assets/Slide-1.jpg" alt="Slide 1">
+                <img class="slider__image slider__image--2" src="./assets/Slide-2.jpg" alt="Slide 2">
             </div>
 
             <div class="port-display" id="port-display">
-                <img class="port-display__image" id="display-image" src="">
+                <img class="port-display__image" id="display-image" src="none" alt="empty display">
                 <button class="port-display__close">☒</button>
-                <button class="port-display__nav-button port-display__nav-button--next"><img
-                        src="./assets/arrow-right.svg"></button>
-                <button class="port-display__nav-button port-display__nav-button--previous"><img
-                        src="./assets/arrow-left.svg"></button>
+                <button class="port-display__nav-button port-display__nav-button--next">
+                    <img src="./assets/arrow-right.svg" alt="Next">
+                </button>
+                <button class="port-display__nav-button port-display__nav-button--previous">
+                    <img src="./assets/arrow-left.svg" alt="Previous">
+                </button>
             </div>
         </div>
 
@@ -259,7 +261,7 @@
                 temporibus
                 necessitatibus.</p>
             <div class="containers contact__containers containers--row">
-                <form action="" class="containers contact__form containers--column">
+                <form action="none" class="containers contact__form containers--column">
                     <div class="containers containers--column contact__form-wraper">
                         <input type="text" name="name" id="name" placeholder="Name (Required)"
                             class="contact__form-fields" required>
@@ -291,7 +293,6 @@
                         <div class="">
                             <img src="./assets/ico-mail.png" class="icons" alt="">
                             <a href="mailto:info@singolo.com" class="anchor contact__anchor">info@singolo.com</a>
-                            </li>
                         </div>
                     </address>
                 </div>

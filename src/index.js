@@ -125,14 +125,16 @@ function changeButtons(selection) {
         currentImage === visibleImages.at(-1) ? null
             : (function () {
                 selectedImg = visibleImages[currentImageIndex + 1];
-                imgDisplay.src = selectedImg.src
+                imgDisplay.src = selectedImg.src;
+                imgDisplay.alt = selectedImg.alt;
             }());
     }
     else if (selection === 'previous') {
         currentImage === visibleImages.at(0) ? null
             : (function () {
                 selectedImg = visibleImages[currentImageIndex - 1];
-                imgDisplay.src = selectedImg.src
+                imgDisplay.src = selectedImg.src;
+                imgDisplay.alt = selectedImg.alt;
             }());
     }
 }
