@@ -189,9 +189,9 @@ body {
     }
 
     &__wraper {
-        width: 200%;
+        position: relative;
+        width: 100%;
         display: flex;
-        transition: 1s;
     }
 
     &__radio {
@@ -200,7 +200,8 @@ body {
 
     &__image {
         max-width: 1020px;
-        width: 50%;
+        width: 100%;
+        transition: 0.5s;
     }
 }
 
