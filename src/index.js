@@ -35,18 +35,6 @@ document.querySelector(".port-display__nav-button--previous").addEventListener('
     changeButtons('previous');
 })
 
-const sliderNext = document.querySelector(".slider__nav-button--next")
-
-sliderNext.addEventListener('click', () => {
-    addImgs("next");
-});
-
-const sliderPrevious = document.querySelector(".slider__nav-button--previous")
-
-sliderPrevious.addEventListener('click', () => {
-    addImgs("previous");
-});
-
 document.getElementById("headerButton").addEventListener('click', () => {
     displayMenu();
 });
@@ -144,10 +132,74 @@ function changeButtons(selection) {
 }
 
 
-
+const sliderNext = document.querySelector(".slider__nav-button--next");
+const sliderPrevious = document.querySelector(".slider__nav-button--previous");
+const slider = document.querySelector(".slider__wraper");
 let slides = document.getElementsByClassName("slider__image");
-let sliders = Array.from(slides).map((img) => img.src);
 
+const firstClone = slides[0].cloneNode(true);
+const lastClone = slides[slides.length - 1].cloneNode(true);
+
+firstClone.id = 'first-clone';
+lastClone.id = 'last-clone'
+
+slider.append(firstClone);
+slider.prepend(lastClone);
+
+let index = 1;
+let last = slides.length - 1;
+
+slider.style.marginLeft = `-${index * 100}%`
+let interval = 3750;
+
+sliderNext.addEventListener('click', next);
+sliderPrevious.addEventListener('click', previous);
+
+
+function next() {
+    if (index >= last) return
+    index++
+    slider.style.transition = `.75s`
+    slider.style.marginLeft = `-${index * 100}%`
+}
+
+function previous() {
+    if (index <= 0) return
+    index--
+    slider.style.transition = `.75s`
+    slider.style.marginLeft = `-${index * 100}%`
+}
+
+function autoSlider() {
+    automate = setInterval(() => {
+    next();
+    }, interval);
+};
+
+
+slider.addEventListener("transitionend", () => {
+    slides = document.getElementsByClassName("slider__image");
+    if (slides[index].id == firstClone.id) {
+        slider.style.transition = 'none';
+        index = 1;
+        slider.style.marginLeft = `-${index * 100}%`
+    };
+    if (slides[index].id == lastClone.id) {
+        slider.style.transition = 'none';
+        index = last-1;
+        slider.style.marginLeft = `-${index * 100}%`
+    };
+})
+
+slider.addEventListener('mouseenter', () => {
+    clearInterval(automate);
+})
+
+slider.addEventListener('mouseleave', autoSlider);
+
+autoSlider();
+
+/*
 while (slides.length > 0) {
     slides[0].remove()
 };
@@ -200,7 +252,7 @@ function cicleSlider(selection) {
     sliderPrevious.removeEventListener('click', () => {
         addImgs("previous");
     });
-*/
+/
     const sliderFrame2 = document.getElementsByClassName("slider__image");
 
     switch (selection) {
@@ -213,7 +265,7 @@ function cicleSlider(selection) {
             });
             sliderPrevious.addEventListener('click', () => {
                 addImgs("previous");
-            });*/
+            });/
             sliderFrame2[0].remove();
         }, 500);
         break;
@@ -226,7 +278,7 @@ function cicleSlider(selection) {
             });
             sliderPrevious.addEventListener('click', () => {
                 addImgs("previous");
-            });*/
+            });/
             sliderFrame2[0].remove();
         }, 500);
         break;
@@ -244,7 +296,7 @@ setInterval(() => {
         sliderCounter = 1;
     }
 }, 5000);
-*/
+/
 function displayMenu() {
     const menuCheckBox = document.getElementById('headerCheck');
     const pageBody = document.querySelector("body").classList;
@@ -256,4 +308,4 @@ function displayMenu() {
         menuCheckBox.checked = true;
         pageBody.add("disable-scroll");
     }
-}
+}*/

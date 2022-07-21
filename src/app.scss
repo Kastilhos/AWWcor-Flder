@@ -201,7 +201,6 @@ body {
     &__image {
         max-width: 1020px;
         width: 100%;
-        transition: 0.5s;
     }
 }
 
@@ -533,6 +532,10 @@ body {
             text-shadow: none;
         }
 
+        &__item-wrap {
+            width: 45%;
+        }
+
     }
 
     .slider {
@@ -541,7 +544,7 @@ body {
 
         &__image {
             max-width: 768px;
-            width: 50%;
+            width: 100%;
         }
     }
 
@@ -740,7 +743,7 @@ body {
 
         &__image {
             max-width: 375px;
-            width: 50%;
+            width: 100%;
         }
     }
 
