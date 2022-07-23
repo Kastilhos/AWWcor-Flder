@@ -1,11 +1,28 @@
+// Mobile navigation menu
+
+document.getElementById("headerButton").addEventListener('click', () => {
+    displayMenu();
+});
+
+function displayMenu() {
+    const menuCheckBox = document.getElementById('headerCheck');
+    const pageBody = document.querySelector("body").classList;
+
+    if (menuCheckBox.checked) {
+        menuCheckBox.checked = false;
+        pageBody.remove("disable-scroll");
+    } else {
+        menuCheckBox.checked = true;
+        pageBody.add("disable-scroll");
+    }
+}
+
+// Portfolio Filter
+
 const allFilters = document.getElementsByClassName('portfolio__filter')
 const allImages = Array.from(document.getElementsByClassName('portfolio__images'));
-let visibleImages = [...allImages]
 let activeFilter = ['all'];
 
-const portDisplay = document.getElementById("port-display");
-const imgDisplay = document.getElementById("display-image");
-let selectedImg;
 
 document.getElementById("all").addEventListener('click', () => {
     filterButton('all');
@@ -22,34 +39,6 @@ document.getElementById("graphic-design").addEventListener('click', () => {
 document.getElementById("artwork").addEventListener('click', () => {
     filterButton('artwork');
 });
-
-document.querySelector(".port-display__close").addEventListener('click', () => {
-    changeButtons('close');
-})
-
-document.querySelector(".port-display__nav-button--next").addEventListener('click', () => {
-    changeButtons('next');
-})
-
-document.querySelector(".port-display__nav-button--previous").addEventListener('click', () => {
-    changeButtons('previous');
-})
-
-document.getElementById("headerButton").addEventListener('click', () => {
-    displayMenu();
-});
-
-visibleImages.forEach((img) => {
-    img.addEventListener('click', () => {
-        displayImg(img);
-    })
-});
-
-Array.from(document.getElementsByClassName("header__mobile-li")).forEach((button) => {
-    button.addEventListener('click', () => {
-        displayMenu();
-    });
-})
 
 function filterButton(select) {
 
@@ -96,13 +85,44 @@ function filterButton(select) {
 
 }
 
+
+// Portfolio Image Display
+
+const portDisplay = document.getElementById("port-display");
+const imgDisplay = document.getElementById("display-image");
+let visibleImages = [...allImages]
+let selectedImg;
+
+document.querySelector(".port-display__close").addEventListener('click', () => {
+    changeButtons('close');
+})
+
+document.querySelector(".port-display__nav-button--next").addEventListener('click', () => {
+    changeButtons('next');
+})
+
+document.querySelector(".port-display__nav-button--previous").addEventListener('click', () => {
+    changeButtons('previous');
+})
+
 function displayImg(img) {
-    
     selectedImg = img;
     imgDisplay.src = img.src;
     portDisplay.classList.add("port-display--visible");
     document.querySelector("body").classList.add("disable-scroll");
 }
+
+visibleImages.forEach((img) => {
+    img.addEventListener('click', () => {
+        displayImg(img);
+    })
+});
+
+Array.from(document.getElementsByClassName("header__mobile-li")).forEach((button) => {
+    button.addEventListener('click', () => {
+        displayMenu();
+    });
+})
 
 function changeButtons(selection) {
 
@@ -131,6 +151,8 @@ function changeButtons(selection) {
     }
 }
 
+
+// Automatic infinite slider
 
 const sliderNext = document.querySelector(".slider__nav-button--next");
 const sliderPrevious = document.querySelector(".slider__nav-button--previous");
@@ -198,6 +220,10 @@ slider.addEventListener('mouseenter', () => {
 slider.addEventListener('mouseleave', autoSlider);
 
 autoSlider();
+
+
+//-------------------------------------------------------------------//
+
 
 /*
 while (slides.length > 0) {
@@ -296,16 +322,4 @@ setInterval(() => {
         sliderCounter = 1;
     }
 }, 5000);
-/
-function displayMenu() {
-    const menuCheckBox = document.getElementById('headerCheck');
-    const pageBody = document.querySelector("body").classList;
-
-    if (menuCheckBox.checked) {
-        menuCheckBox.checked = false;
-        pageBody.remove("disable-scroll");
-    } else {
-        menuCheckBox.checked = true;
-        pageBody.add("disable-scroll");
-    }
-}*/
+/*/
